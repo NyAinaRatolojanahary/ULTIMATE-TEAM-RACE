@@ -1,0 +1,1 @@
+pg_dump -U postgres -d trail -f D:/Bossy/L3/S6/Evaluation/ULTIMATE-TEAM-RACE/Sql/Dump1.sql; 
