@@ -39,6 +39,7 @@
                 for(Categorie categ : lscg) {
                     ClassementEquipeCategorie ci = new ClassementEquipeCategorie();
                     ArrayList<ClassementEquipeCategorie> lsclass = ci.getClassementEquipeParCategorie(categ.getIdCategorie());
+                    ArrayList<ClassementEquipeCategorie> lsclassmiloko = ci.mandoko(lsclass);
             %>
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -58,9 +59,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% for(ClassementEquipeCategorie cetp : lsclass){%>
+                                    <% for(ClassementEquipeCategorie cetp : lsclassmiloko){%>
                                         <tr>
-                                            <td class="d-none d-xl-table-cell"><%= cetp.getNomEquipe()%></td>
+                                            <%if(cetp.getLoko()==1){%>
+                                                <td class="d-none d-xl-table-cell"><span class="badge bg-success"><%= cetp.getNomEquipe()%></span></td>
+                                            <%}%>
+                                            <%if(cetp.getLoko()==0){%>
+                                                <td class="d-none d-xl-table-cell"><%= cetp.getNomEquipe()%></td>
+                                            <%}%>
                                             <td class="d-none d-xl-table-cell"><%= cetp.getNomCategorie()%> </td>
                                             <td class="d-none d-xl-table-cell"><%= cetp.getTotalPoints()%></td>
                                             <td class="d-none d-xl-table-cell"><%= cetp.getClassement()%> </td>

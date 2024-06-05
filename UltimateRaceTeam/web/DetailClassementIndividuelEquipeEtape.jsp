@@ -1,15 +1,15 @@
 <%-- 
-    Document   : DetailClassementIndividuel
-    Created on : 2 juin 2024, 22:30:12
+    Document   : DetailClassementIndividuelEquipeEtape
+    Created on : 5 juin 2024, 17:31:53
     Author     : Ny Aina Ratolo
 --%>
 
-<%@page import="Models.DetailClassementIndividuel" %>
+<%@page import="Models.ClassementIndividuel" %>
 <%@page import="java.util.ArrayList" %>
 
 <%
-    ArrayList<DetailClassementIndividuel> lsclass = new ArrayList<>();
-    lsclass = (ArrayList<DetailClassementIndividuel>) request.getAttribute("listeDetail");
+    ArrayList<ClassementIndividuel> lsclass = new ArrayList<>();
+    lsclass = (ArrayList<ClassementIndividuel>) request.getAttribute("listeDetail");
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,34 +41,28 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Classement Individuel</h1>
+					<h1 class="h3 mb-3">Detail Point Equipe</h1>
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
+<!--								<div class="card-header">
 									<h5 class="card-title mb-0">Etapes du course</h5>
-								</div>
+								</div>-->
 								<div class="card-body">
-                                                                    <h1 class="card-title mb-0">Coureur: <%= lsclass.get(0).getNomCoureur()%> </h1><h1 class="card-title mb-0">Equipe : <%= lsclass.get(0).getNomEquipe()%></h1>
+                                                                    <h1 class="card-title mb-0">Equipe : <%= lsclass.get(0).getNomEquipe()%></h1>
                                                                     <table class="table table-hover my-0">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th class="d-none d-xl-table-cell">Nom Etape</th>
-                                                                                <th class="d-none d-xl-table-cell">DateHeure de depart</th>
-                                                                                <th class="d-none d-xl-table-cell">DateHeure d'arrivee</th>
-                                                                                <th class="d-none d-xl-table-cell">Temps Passe</th>
+                                                                                <th class="d-none d-xl-table-cell">Nom Coureur</th>
                                                                                 <th class="d-none d-xl-table-cell">Rang</th>
                                                                                 <th class="d-none d-xl-table-cell">Point</th>
                                                                             </tr>
                                                                         </thead>
                                                                             <tbody>
-                                                                                <% for(DetailClassementIndividuel cli : lsclass){%>
+                                                                                <% for(ClassementIndividuel cli : lsclass){%>
                                                                                     <tr>
-                                                                                        <td class="d-none d-xl-table-cell"><%= cli.getNomEtape()%></td>
-                                                                                        <td class="d-none d-xl-table-cell"><%= cli.getDateHeureDepart()%></td>
-                                                                                        <td class="d-none d-md-table-cell"><%= cli.getDateHeureArrivee()%></td>
-                                                                                        <td class="d-none d-md-table-cell"><%= cli.getDuree()%> Heures</td>
-                                                                                        <td class="d-none d-md-table-cell"><%= cli.getClassement()%></td>
+                                                                                        <td class="d-none d-xl-table-cell"><%= cli.getNomCoureur()%></td>
+                                                                                        <td class="d-none d-md-table-cell"><%= cli.getRang()%></td>
                                                                                         <td class="d-none d-md-table-cell"><%= cli.getPoint()%></td>
                                                                                     </tr>
                                                                                 <%}%>
@@ -88,4 +82,3 @@
 </body>
 
 </html>
-

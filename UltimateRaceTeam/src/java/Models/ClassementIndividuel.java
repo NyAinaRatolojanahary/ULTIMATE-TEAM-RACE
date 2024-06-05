@@ -122,6 +122,45 @@ public class ClassementIndividuel {
         return listes;
     }
     
+    public ArrayList<ClassementIndividuel> getDetailClassementParEquipe(int idEquipe) throws Exception{
+        ArrayList<ClassementIndividuel> listes = new ArrayList<>();
+        
+        String sql = "SELECT * FROM v_classementindividuelpenalite where idEquipe="+idEquipe+";";
+        
+        ConnectBase cb = new ConnectBase();
+        Connection c = null;
+        Statement st = null;
+        ResultSet rs = null;
+        
+        try {
+            c = cb.connectToDataBase();
+            st = c.createStatement();
+            rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                ClassementIndividuel ci = new ClassementIndividuel();
+                ci.setIdCoureur(rs.getInt("idCoureur"));
+                ci.setNomCoureur(rs.getString("NomCoureur"));
+                ci.setNumeroCoureur(rs.getInt("Numero"));
+                ci.setNomEquipe(rs.getString("NomEquipe"));
+                ci.setRang(rs.getInt("rang"));
+                ci.setPoint(rs.getInt("points"));
+                
+                listes.add(ci);
+            }
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        finally{
+            c.close();
+            st.close();
+            rs.close();
+        }
+        
+        return listes;
+    }
+    
     
     
 }

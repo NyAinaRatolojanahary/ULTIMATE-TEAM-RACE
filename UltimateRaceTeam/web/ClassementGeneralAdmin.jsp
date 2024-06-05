@@ -66,6 +66,12 @@
                                                                                         <td class="d-none d-md-table-cell"><%= cli.getNomEquipe()%></td>
                                                                                         <td class="d-none d-md-table-cell"><%= cli.getRang()%></td>
                                                                                         <td class="d-none d-md-table-cell"><%= cli.getPoint()%></td>
+                                                                                        <td>
+                                                                                            <form action="/UltimateRaceTeam/DetailClassementIndividuelEquipeServlet" method="post">
+                                                                                                <input type="hidden" name="idEquipe" value="<%= cli.getIdEquipe()%>">
+                                                                                                <button class="btn btn-success btn-sm">Voir Detail Point Joueur</button>
+                                                                                            </form>
+                                                                                        </td>
                                                                                     </tr>
                                                                                 <%}%>
                                                                             </tbody>

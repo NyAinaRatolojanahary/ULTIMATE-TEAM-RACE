@@ -43,25 +43,27 @@ pe.TempsPenalite;
 
 CREATE OR REPLACE VIEW v_CoureurRangPenalite AS
 SELECT 
-vc.idEtape,
-vc.NomEtape,
-vc.idEquipe,
-vc.NomEquipe,
-vc.idCoureur,
-vc.NomCoureur,
-vc.DateHeureDepart,
-vc.DateHeureArrivee,
-vc.DIFF,
-vc.hour_diff,
-vc.day_diff,
-vc.Classement,
-CASE
-    WHEN r.Points IS NOT NULL THEN r.Points
-    ELSE 0
-END AS Points
+    vc.idEtape,
+    vc.NomEtape,
+    vc.idEquipe,
+    vc.NomEquipe,
+    vc.idCoureur,
+    vc.NomCoureur,
+    vc.DateHeureDepart,
+    vc.DateHeureArrivee,
+    vc.DIFF,
+    vc.hour_diff,
+    vc.day_diff,
+    vc.Classement,
+    CASE
+        WHEN vc.DateHeureArrivee IS NULL THEN 0
+        WHEN r.Points IS NOT NULL THEN r.Points
+        ELSE 0
+    END AS Points
 FROM v_CoureurEtapeClassementPenalite vc
 LEFT JOIN PointRang r ON vc.Classement = r.Classement
 ORDER BY vc.idEtape, vc.Classement ASC;
+
 
 -- vue classement individuel par somme point coureur avec penalite
 CREATE OR REPLACE view v_ClassementIndividuelPenalite as
@@ -71,11 +73,12 @@ v_coureurrangpenalite.nomCoureur,
 c.Numero,
 e.NomEquipe,
 DENSE_RANK() OVER (ORDER BY sum(points) DESC) AS Rang,
-sum(points) as points 
+sum(points) as points,
+e.idEquipe
 FROM v_coureurrangpenalite 
 JOIN Coureur c on c.idCoureur = v_coureurrangpenalite.idCoureur
 JOIN Equipe e on e.idEquipe = c.idEquipe
-GROUP BY v_CoureurRangPenalite.idCoureur,v_coureurrangpenalite.NomCoureur,c.Numero,e.NomEquipe; 
+GROUP BY v_CoureurRangPenalite.idCoureur,v_coureurrangpenalite.NomCoureur,c.Numero,e.NomEquipe,e.idEquipe; 
 
 
 -- VUE somme point coureur par equipe avec penalite

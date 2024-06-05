@@ -72,6 +72,10 @@
         <servlet-name>DetailClassementIndividuelEtapeServlet</servlet-name>
         <servlet-class>Controllers.DetailClassementIndividuelEtapeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailClassementIndividuelEquipeServlet</servlet-name>
+        <servlet-class>Controllers.DetailClassementIndividuelEquipeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>DetailClassementIndividuelEtapeServlet</servlet-name>
         <url-pattern>/DetailClassementIndividuelEtapeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailClassementIndividuelEquipeServlet</servlet-name>
+        <url-pattern>/DetailClassementIndividuelEquipeServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

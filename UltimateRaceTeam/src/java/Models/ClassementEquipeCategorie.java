@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +23,7 @@ public class ClassementEquipeCategorie {
     private String nomCategorie;
     private int totalPoints;
     private int classement;
+    private int loko;
 
     public String getNomEquipe() {
         return nomEquipe;
@@ -53,6 +56,16 @@ public class ClassementEquipeCategorie {
     public void setClassement(int classement) {
         this.classement = classement;
     }
+
+    public int getLoko() {
+        return loko;
+    }
+
+    public void setLoko(int loko) {
+        this.loko = loko;
+    }
+    
+    
 
     public ClassementEquipeCategorie() {}
 
@@ -96,6 +109,40 @@ public class ClassementEquipeCategorie {
         }
         
         return listes;
+    }
+    
+    public ArrayList<ClassementEquipeCategorie> mandoko(ArrayList<ClassementEquipeCategorie> liste) {
+        for (int i = 0; i < liste.size(); i++) {
+            boolean execo = false;
+            for (int j = 0; j < liste.size(); j++) {
+                if (i != j && liste.get(i).getTotalPoints() == liste.get(j).getTotalPoints()) {
+                    execo = true;
+                    break;
+                }
+            }
+            liste.get(i).setLoko(execo ? 1 : 0);
+        }
+        return liste;
+    }
+    
+    public static void main(String[] args){
+    
+        ClassementEquipeCategorie cg = new ClassementEquipeCategorie();
+        
+        try {
+            ArrayList<ClassementEquipeCategorie> lscg = cg.getClassementEquipeParCategorie(5);
+            ArrayList<ClassementEquipeCategorie> lsm = cg.mandoko(lscg);
+            
+            System.out.println(lsm.size());
+            
+            for (int i = 0; i < lsm.size(); i++) {
+                System.out.println(lsm.get(i).getLoko());
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ClassementEquipeCategorie.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
     
 }
