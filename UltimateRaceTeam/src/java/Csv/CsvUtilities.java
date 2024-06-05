@@ -54,12 +54,12 @@ public class CsvUtilities {
         
         for (int i = 0; i < lists.size(); i++) {
             EtapeCourse ec = new EtapeCourse();
-            ec.setNometape(lists.get(i).get("nom"));
-            ec.setLongueur(ec.convertDouble(lists.get(i).get("km")));
-            ec.setNbrcoureurequipe(Integer.parseInt(lists.get(i).get("nbcoureur")));
+            ec.setNometape(lists.get(i).get("etape"));
+            ec.setLongueur(ec.convertDouble(lists.get(i).get("longueur")));
+            ec.setNbrcoureurequipe(Integer.parseInt(lists.get(i).get("nb coureur")));
             ec.setRang(Integer.parseInt(lists.get(i).get("rang")));
-            String date = ec.convertDate(lists.get(i).get("date"));
-            ec.setDateheuredepart(ec.composeDateHeureDepart(date, lists.get(i).get("heure")));
+            String date = ec.convertDate(lists.get(i).get("date départ"));
+            ec.setDateheuredepart(ec.composeDateHeureDepart(date, lists.get(i).get("heure départ")));
             listes.add(ec);
         }
         

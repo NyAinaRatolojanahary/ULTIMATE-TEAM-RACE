@@ -22,7 +22,13 @@
 
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="ListeEtapeCourseAdmin.jsp">
-                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Etape Course</span>
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Etape Course (Affectation Temps)</span>
+                    </a>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="ListeEtapeCourseDetailAdmin.jsp">
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Etape Course (Classement Individuel)</span>
                     </a>
                 </li>
                 

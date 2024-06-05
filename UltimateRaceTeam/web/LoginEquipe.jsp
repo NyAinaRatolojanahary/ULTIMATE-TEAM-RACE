@@ -55,11 +55,11 @@
 									<form action="LoginEquipeServlet" method="post">
 										<div class="mb-3">
 											<label class="form-label">Email</label>
-                                                                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" value="trailxp@gmail.com"/>
+                                                                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" value="A@gmail.com"/>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label>
-                                                                                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" value="trailxp"/>
+                                                                                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" value="Apass"/>
 										</div>
 										<% if(errMess!= null){%>
                                                                                 <div class="mb-3">

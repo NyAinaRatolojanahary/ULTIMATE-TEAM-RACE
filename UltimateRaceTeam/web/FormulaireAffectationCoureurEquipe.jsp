@@ -11,7 +11,7 @@
     int idEtape = (int)request.getAttribute("idEtape");
     ArrayList<Coureur> lscr = new ArrayList<>();
     lscr = (ArrayList<Coureur>) request.getAttribute("listeCoureur");
-    int nombreCoureur = (int)request.getAttribute("nombreCoureur");
+    int nombreCoureur = lscr.size();
     
 %>
 

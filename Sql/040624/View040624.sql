@@ -168,18 +168,3 @@ GROUP BY
     eq.NomEquipe, cat.idCategorie, cat.NomCategorie;
 
 
--- vue contant le nombre restant de coureur assignable a une etape
-
-CREATE OR REPLACE view v_NbrCoureurAssignableEtape AS
-SELECT
-    ce.idEtape,
-    e.NomEtape,
-    e.NbrCoureurEquipe,
-    COUNT(ce.idCoureur) AS NombreCoureurInscrit,
-    e.NbrCoureurEquipe - COUNT(ce.idCoureur) AS NombreCoureurRestant
-FROM
-    Etape e
-LEFT JOIN
-    CoureurEtape ce ON e.idEtape = ce.idEtape
-GROUP BY
-    ce.idEtape, e.NomEtape, e.NbrCoureurEquipe;

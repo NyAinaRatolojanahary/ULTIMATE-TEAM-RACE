@@ -68,6 +68,10 @@
         <servlet-name>PreGenerationPDFServlet</servlet-name>
         <servlet-class>Controllers.PreGenerationPDFServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetailClassementIndividuelEtapeServlet</servlet-name>
+        <servlet-class>Controllers.DetailClassementIndividuelEtapeServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>PreGenerationPDFServlet</servlet-name>
         <url-pattern>/PreGenerationPDFServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailClassementIndividuelEtapeServlet</servlet-name>
+        <url-pattern>/DetailClassementIndividuelEtapeServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
