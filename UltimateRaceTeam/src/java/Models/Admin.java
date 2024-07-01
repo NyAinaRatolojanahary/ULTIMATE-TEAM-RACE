@@ -87,7 +87,6 @@ public class Admin {
         ResultSet rs = null;
         
         String sql = "SELECT * FROM admin WHERE mail='"+ emailToSearch+"' AND pwd='"+pwd+"';";
-        System.out.println(sql);
         
         try {
             c = cb.connectToDataBase();
